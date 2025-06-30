@@ -1,28 +1,39 @@
-name: Deploy Next.js site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Cambia esto si deseas que se dispare en otra rama
+    branches: [ main ]
+  workflow_dispatch: # Permite ejecutarlo manualmente
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install dependencies
-        run: npm install
-      - name: Build with Next.js
-        run: npm run build
-      - name: Export Next.js site
-        run: npm run export  # Asegúrate de tener este script en package.json
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # Asegúrate de que esta ruta sea correcta
-          publish_branch: gh-pages  # Cambia esto si deseas usar otra rama
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Build
+      env:
+        NEXT_PUBLIC_BASE_PATH: /lupesbbq
+      run: next build
+    
+    - name: Upload to branch
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./out
+    publish_branch: main  # Puedes cambiar "gh-pages" por el nombre de tu rama preferida
