@@ -26,10 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
     
-    - name: Build
-  env:
-    NEXT_PUBLIC_BASE_PATH: /lupesbbq
-  run: npx next build
+      - name: Build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /lupesbbq
+        run: npx next build
     
       - name: Upload to branch
         uses: peaceiris/actions-gh-pages@v3
