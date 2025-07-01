@@ -1,12 +1,12 @@
 // app/page.tsx
-import Header from "@/app/components/Header.tsx";
-import HeroSection from "@/app/components/HeroSection.tsx";
-import ProductCarousel from "@/app/components/ProductCarousel.tsx";
-import BBQBoxSection from "@/app/components/BBQBoxSection.tsx";
-import EducationalSection from "@/app/components/EducationalSection.tsx";
-import ValueProposition from "@/app/components/ValueProposition.tsx";
-import FinalCTA from "@/app/components/FinalCTA.tsx";
-import Footer from "@/app/components/Footer.tsx";
+import Header from "./components/Header"; // Sin @ y sin .tsx
+import HeroSection from "./components/HeroSection";
+import ProductCarousel from "./components/ProductCarousel";
+import BBQBoxSection from "./components/BBQBoxSection";
+import EducationalSection from "./components/EducationalSection";
+import ValueProposition from "./components/ValueProposition";
+import FinalCTA from "./components/FinalCTA";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
