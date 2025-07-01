@@ -1,12 +1,12 @@
 // app/page.tsx
-import Header from "@/app/components/Header";
-import HeroSection from "@/app/components/HeroSection";
-import ProductCarousel from "@/app/components/ProductCarousel";
-import BBQBoxSection from "@/app/components/BBQBoxSection";
-import EducationalSection from "@/app/components/EducationalSection";
-import ValueProposition from "@/app/components/ValueProposition";
-import FinalCTA from "@/app/components/FinalCTA";
-import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header.tsx";
+import HeroSection from "@/app/components/HeroSection.tsx";
+import ProductCarousel from "@/app/components/ProductCarousel.tsx";
+import BBQBoxSection from "@/app/components/BBQBoxSection.tsx";
+import EducationalSection from "@/app/components/EducationalSection.tsx";
+import ValueProposition from "@/app/components/ValueProposition.tsx";
+import FinalCTA from "@/app/components/FinalCTA.tsx";
+import Footer from "@/app/components/Footer.tsx";
 
 export default function Home() {
   return (
